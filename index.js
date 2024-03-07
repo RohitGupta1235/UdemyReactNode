@@ -22,8 +22,10 @@ app.use(passport.session());
 require("./routes/authRoutes")(app);
 
 const PORT = process.env.PORT || 5000;
-
 app.get("/", (req, res) => {
+  res.send("<h1>Abe satyam beti chod deploy hogya backend finalyy !!</h1>");
+});
+app.get("/rohit", (req, res) => {
   res.send("<h1>Rohit Gupta is this working!!</h1>");
 });
 app.listen(PORT, () => {
