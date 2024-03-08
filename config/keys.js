@@ -1,8 +1,9 @@
-module.exports = {
-  googleClientID:
-    "298620116935-pq4ln11s2h389ik2nrtg7ptvoc17128o.apps.googleusercontent.com",
-  googleClientSecret: "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",
-  mongoURI:
-    "mongodb+srv://rohitniitian1235:rohit7734@cluster0.ymz6zen.mongodb.net/emailydb?retryWrites=true&w=majority&appName=Cluster0",
-  cookieKey: "jlkjfdklajfdajiejijijfdf",
-};
+//keys.js -- figure out what set of credentials to return
+
+if (process.env.NODE_ENV === "production") {
+  //we are in production  -- return the prod set of keys
+  module.exports = require("./pord");
+} else {
+  //we are in development -return the dev keys !!!
+  module.exports = require("./dev");
+}
