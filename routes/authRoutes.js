@@ -8,11 +8,20 @@ module.exports = (app) => {
     })
   );
 
-  app.get("/auth/google/callback", passport.authenticate("google"));
+  app.get(
+    "/auth/google/callback",
+    passport.authenticate("google"),
+    (req, res) => {
+      res.redirect("/surveys");
+    }
+  );
+
+  //age kon se cahin mein dega passport ,.authenticate ek middkeware hein age kiss chij ko proceess krege
 
   app.get("/api/logout", (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect("/");
+    // res.send(req.user);
   });
 
   app.get("/api/current_user", (req, res) => {
